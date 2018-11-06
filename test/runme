@@ -1,0 +1,3 @@
+python Allsteps_VAV.py UNK3.mol2 UNK capping_atoms X G 0 -s N -t C
+tleap -f build_ligand.tleap
+/Users/yunhuige/local/acpype/acpype.py -p ligand.prmtop -x ligand.crd -d -o gmx
