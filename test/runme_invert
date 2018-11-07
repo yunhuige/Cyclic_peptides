@@ -1,0 +1,2 @@
+chimera --nogui --script "invert_chirality.py /path/to/pdb"
+chimera --nogui --script "invert_chirality.py ligand_GMX.gro"
