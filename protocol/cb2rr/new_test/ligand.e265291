@@ -1,0 +1,382 @@
+                   :-) GROMACS - gmx grompp, VERSION 5.1 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov  Herman J.C. Berendsen    Par Bjelkmar   
+ Aldert van Buuren   Rudi van Drunen     Anton Feenstra   Sebastian Fritsch 
+  Gerrit Groenhof   Christoph Junghans   Anca Hamuraru    Vincent Hindriksen
+ Dimitrios Karkoulis    Peter Kasson        Jiri Kraus      Carsten Kutzner  
+    Per Larsson      Justin A. Lemkul   Magnus Lundborg   Pieter Meulenhoff 
+   Erik Marklund      Teemu Murtola       Szilard Pall       Sander Pronk   
+   Roland Schulz     Alexey Shvetsov     Michael Shirts     Alfons Sijbers  
+   Peter Tieleman    Teemu Virolainen  Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2015, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx grompp, VERSION 5.1
+Executable:   /share/apps/gromacs/5.1.0/bin/gmx
+Data prefix:  /share/apps/gromacs/5.1.0
+Command line:
+  gmx grompp -f mdp/minimize.mdp -c solv_ions.gro -p ligand_GMX.top -n index.ndx -o minimize2.tpr
+
+
+NOTE 1 [file mdp/minimize.mdp, line 48]:
+  mdp/minimize.mdp did not specify a value for the .mdp option
+  "cutoff-scheme". Probably it was first intended for use with GROMACS
+  before 4.6. In 4.6, the Verlet scheme was introduced, but the group
+  scheme was still the default. The default is now the Verlet scheme, so
+  you will observe different behaviour.
+
+Ignoring obsolete mdp entry 'title'
+Ignoring obsolete mdp entry 'cpp'
+Replacing old mdp entry 'nstxtcout' by 'nstxout-compressed'
+Replacing old mdp entry 'xtc_grps' by 'compressed-x-grps'
+
+Back Off! I just backed up mdout.mdp to ./#mdout.mdp.10#
+
+NOTE 2 [file mdp/minimize.mdp]:
+  nstcomm < nstcalcenergy defeats the purpose of nstcalcenergy, setting
+  nstcomm to nstcalcenergy
+
+Setting the LD random seed to 4078401735
+
+WARNING 1 [file ligand_GMX.top, line 8]:
+  Overriding atomtype N
+
+
+WARNING 2 [file ligand_GMX.top, line 9]:
+  Overriding atomtype H
+
+
+WARNING 3 [file ligand_GMX.top, line 10]:
+  Overriding atomtype CT
+
+
+WARNING 4 [file ligand_GMX.top, line 11]:
+  Overriding atomtype H1
+
+
+WARNING 5 [file ligand_GMX.top, line 12]:
+  Overriding atomtype HC
+
+
+WARNING 6 [file ligand_GMX.top, line 13]:
+  Overriding atomtype CA
+
+
+WARNING 7 [file ligand_GMX.top, line 14]:
+  Overriding atomtype HA
+
+
+WARNING 8 [file ligand_GMX.top, line 15]:
+  Overriding atomtype C
+
+
+WARNING 9 [file ligand_GMX.top, line 16]:
+  Overriding atomtype O
+
+
+WARNING 10 [file ligand_GMX.top, line 18]:
+  Overriding atomtype C*
+
+
+WARNING 11 [file ligand_GMX.top, line 19]:
+  Overriding atomtype CW
+
+
+WARNING 12 [file ligand_GMX.top, line 20]:
+  Overriding atomtype H4
+
+
+WARNING 13 [file ligand_GMX.top, line 21]:
+  Overriding atomtype NA
+
+
+WARNING 14 [file ligand_GMX.top, line 22]:
+  Overriding atomtype CN
+
+
+WARNING 15 [file ligand_GMX.top, line 23]:
+  Overriding atomtype CB
+
+
+WARNING 16 [file ligand_GMX.top, line 25]:
+  Overriding atomtype HP
+
+
+WARNING 17 [file ligand_GMX.top, line 26]:
+  Overriding atomtype N3
+
+
+WARNING 18 [file ligand_GMX.top, line 27]:
+  Overriding atomtype O2
+
+
+WARNING 19 [file ligand_GMX.top, line 28]:
+  Overriding atomtype OH
+
+
+WARNING 20 [file ligand_GMX.top, line 29]:
+  Overriding atomtype HO
+
+Generated 2346 of the 2346 non-bonded parameter combinations
+Generating 1-4 interactions: fudge = 0.5
+Generated 2346 of the 2346 1-4 parameter combinations
+Excluding 3 bonded neighbours molecule type 'ligand'
+Excluding 2 bonded neighbours molecule type 'SOL'
+Excluding 1 bonded neighbours molecule type 'NA'
+Excluding 1 bonded neighbours molecule type 'CL'
+Removing all charge groups because cutoff-scheme=Verlet
+Number of degrees of freedom in T-Coupling group System is 13398.00
+Estimate for the relative computational load of the PME mesh part: 0.21
+
+There were 2 notes
+
+There were 20 warnings
+
+-------------------------------------------------------
+Program gmx grompp, VERSION 5.1
+Source code file: /home/install/sources/gromacs/gromacs-5.1/src/gromacs/gmxpreprocess/grompp.c, line: 2107
+
+Fatal error:
+Too many warnings (20), gmx terminated.
+If you are sure all warnings are harmless, use the -maxwarn option.
+For more information and tips for troubleshooting, please check the GROMACS
+website at http://www.gromacs.org/Documentation/Errors
+-------------------------------------------------------
+
+                    :-) GROMACS - gmx mdrun, VERSION 5.1 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov  Herman J.C. Berendsen    Par Bjelkmar   
+ Aldert van Buuren   Rudi van Drunen     Anton Feenstra   Sebastian Fritsch 
+  Gerrit Groenhof   Christoph Junghans   Anca Hamuraru    Vincent Hindriksen
+ Dimitrios Karkoulis    Peter Kasson        Jiri Kraus      Carsten Kutzner  
+    Per Larsson      Justin A. Lemkul   Magnus Lundborg   Pieter Meulenhoff 
+   Erik Marklund      Teemu Murtola       Szilard Pall       Sander Pronk   
+   Roland Schulz     Alexey Shvetsov     Michael Shirts     Alfons Sijbers  
+   Peter Tieleman    Teemu Virolainen  Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2015, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx mdrun, VERSION 5.1
+Executable:   /share/apps/gromacs/5.1.0/bin/gmx
+Data prefix:  /share/apps/gromacs/5.1.0
+Command line:
+  gmx mdrun -v -nt 1 -s minimize2.tpr -c solvent_ions_minimized.gro
+
+
+-------------------------------------------------------
+Program:     gmx mdrun, VERSION 5.1
+Source file: src/gromacs/commandline/cmdlineparser.cpp (line 234)
+Function:    void gmx::CommandLineParser::parse(int*, char**)
+
+Error in user input:
+Invalid command-line options
+  In command-line option -s
+    File 'minimize2.tpr' does not exist or is not accessible.
+
+For more information and tips for troubleshooting, please check the GROMACS
+website at http://www.gromacs.org/Documentation/Errors
+-------------------------------------------------------
+                   :-) GROMACS - gmx grompp, VERSION 5.1 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov  Herman J.C. Berendsen    Par Bjelkmar   
+ Aldert van Buuren   Rudi van Drunen     Anton Feenstra   Sebastian Fritsch 
+  Gerrit Groenhof   Christoph Junghans   Anca Hamuraru    Vincent Hindriksen
+ Dimitrios Karkoulis    Peter Kasson        Jiri Kraus      Carsten Kutzner  
+    Per Larsson      Justin A. Lemkul   Magnus Lundborg   Pieter Meulenhoff 
+   Erik Marklund      Teemu Murtola       Szilard Pall       Sander Pronk   
+   Roland Schulz     Alexey Shvetsov     Michael Shirts     Alfons Sijbers  
+   Peter Tieleman    Teemu Virolainen  Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2015, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx grompp, VERSION 5.1
+Executable:   /share/apps/gromacs/5.1.0/bin/gmx
+Data prefix:  /share/apps/gromacs/5.1.0
+Command line:
+  gmx grompp -f mdp/equil.mdp -c solvent_ions_minimized.gro -p ligand_GMX.top -n index.ndx -o equil.tpr
+
+
+-------------------------------------------------------
+Program:     gmx grompp, VERSION 5.1
+Source file: src/gromacs/commandline/cmdlineparser.cpp (line 234)
+Function:    void gmx::CommandLineParser::parse(int*, char**)
+
+Error in user input:
+Invalid command-line options
+  In command-line option -c
+    File 'solvent_ions_minimized.gro' does not exist or is not accessible.
+
+For more information and tips for troubleshooting, please check the GROMACS
+website at http://www.gromacs.org/Documentation/Errors
+-------------------------------------------------------
+                    :-) GROMACS - gmx mdrun, VERSION 5.1 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov  Herman J.C. Berendsen    Par Bjelkmar   
+ Aldert van Buuren   Rudi van Drunen     Anton Feenstra   Sebastian Fritsch 
+  Gerrit Groenhof   Christoph Junghans   Anca Hamuraru    Vincent Hindriksen
+ Dimitrios Karkoulis    Peter Kasson        Jiri Kraus      Carsten Kutzner  
+    Per Larsson      Justin A. Lemkul   Magnus Lundborg   Pieter Meulenhoff 
+   Erik Marklund      Teemu Murtola       Szilard Pall       Sander Pronk   
+   Roland Schulz     Alexey Shvetsov     Michael Shirts     Alfons Sijbers  
+   Peter Tieleman    Teemu Virolainen  Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2015, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx mdrun, VERSION 5.1
+Executable:   /share/apps/gromacs/5.1.0/bin/gmx
+Data prefix:  /share/apps/gromacs/5.1.0
+Command line:
+  gmx mdrun -v -nt 20 -s equil.tpr -c solvent_ions_equilibrated.gro
+
+
+-------------------------------------------------------
+Program:     gmx mdrun, VERSION 5.1
+Source file: src/gromacs/commandline/cmdlineparser.cpp (line 234)
+Function:    void gmx::CommandLineParser::parse(int*, char**)
+
+Error in user input:
+Invalid command-line options
+  In command-line option -s
+    File 'equil.tpr' does not exist or is not accessible.
+
+For more information and tips for troubleshooting, please check the GROMACS
+website at http://www.gromacs.org/Documentation/Errors
+-------------------------------------------------------
+                   :-) GROMACS - gmx grompp, VERSION 5.1 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov  Herman J.C. Berendsen    Par Bjelkmar   
+ Aldert van Buuren   Rudi van Drunen     Anton Feenstra   Sebastian Fritsch 
+  Gerrit Groenhof   Christoph Junghans   Anca Hamuraru    Vincent Hindriksen
+ Dimitrios Karkoulis    Peter Kasson        Jiri Kraus      Carsten Kutzner  
+    Per Larsson      Justin A. Lemkul   Magnus Lundborg   Pieter Meulenhoff 
+   Erik Marklund      Teemu Murtola       Szilard Pall       Sander Pronk   
+   Roland Schulz     Alexey Shvetsov     Michael Shirts     Alfons Sijbers  
+   Peter Tieleman    Teemu Virolainen  Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2015, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx grompp, VERSION 5.1
+Executable:   /share/apps/gromacs/5.1.0/bin/gmx
+Data prefix:  /share/apps/gromacs/5.1.0
+Command line:
+  gmx grompp -f mdp/equil_NVT.mdp -c solvent_ions_equilibrated.gro -p ligand_GMX.top -n index.ndx -o equil2.tpr
+
+
+-------------------------------------------------------
+Program:     gmx grompp, VERSION 5.1
+Source file: src/gromacs/commandline/cmdlineparser.cpp (line 234)
+Function:    void gmx::CommandLineParser::parse(int*, char**)
+
+Error in user input:
+Invalid command-line options
+  In command-line option -c
+    File 'solvent_ions_equilibrated.gro' does not exist or is not accessible.
+
+For more information and tips for troubleshooting, please check the GROMACS
+website at http://www.gromacs.org/Documentation/Errors
+-------------------------------------------------------
+                    :-) GROMACS - gmx mdrun, VERSION 5.1 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov  Herman J.C. Berendsen    Par Bjelkmar   
+ Aldert van Buuren   Rudi van Drunen     Anton Feenstra   Sebastian Fritsch 
+  Gerrit Groenhof   Christoph Junghans   Anca Hamuraru    Vincent Hindriksen
+ Dimitrios Karkoulis    Peter Kasson        Jiri Kraus      Carsten Kutzner  
+    Per Larsson      Justin A. Lemkul   Magnus Lundborg   Pieter Meulenhoff 
+   Erik Marklund      Teemu Murtola       Szilard Pall       Sander Pronk   
+   Roland Schulz     Alexey Shvetsov     Michael Shirts     Alfons Sijbers  
+   Peter Tieleman    Teemu Virolainen  Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2015, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx mdrun, VERSION 5.1
+Executable:   /share/apps/gromacs/5.1.0/bin/gmx
+Data prefix:  /share/apps/gromacs/5.1.0
+Command line:
+  gmx mdrun -v -nt 20 -s equil2.tpr -c solvent_ions_equilibrated2.gro
+
+
+-------------------------------------------------------
+Program:     gmx mdrun, VERSION 5.1
+Source file: src/gromacs/commandline/cmdlineparser.cpp (line 234)
+Function:    void gmx::CommandLineParser::parse(int*, char**)
+
+Error in user input:
+Invalid command-line options
+  In command-line option -s
+    File 'equil2.tpr' does not exist or is not accessible.
+
+For more information and tips for troubleshooting, please check the GROMACS
+website at http://www.gromacs.org/Documentation/Errors
+-------------------------------------------------------

@@ -1,0 +1,16 @@
+# using tleap to build the structure and top file and using acpype to convert them to GROMACS format
+
+tleap -f new_tleap.in
+/Users/yunhuige/local/acpype/acpype.py -p ligand.prmtop -x ligand.crd -d -o gmx
+
+
+# using Chimera to invert PRO to DPRO
+
+chimera --nogui --script "invert_chirality.py /path/to/pdb"
+* or chimera --nogui --script "invert_chirality.py ligand_GMX.gro"
+
+# using Chimera to modify dihedral angles
+
+chimera --nogui --script "psi_n_phi_angles.py ligand_GMX_invert.pdb"
+
+
