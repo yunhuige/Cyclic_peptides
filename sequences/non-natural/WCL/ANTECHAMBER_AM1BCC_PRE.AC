@@ -1,0 +1,75 @@
+CHARGE      0.00 ( 0 )
+Formula: H16 C14 N3 O2 Cl1 
+ATOM      1  N   UNK     1      -2.086   2.043   0.435 -0.356000         n
+ATOM      2  CA  UNK     1      -0.638   2.043   0.435  0.002000        c3
+ATOM      3  C   UNK     1      -0.115   3.472   0.435  0.270000         c
+ATOM      4  N1  UNK     1       0.853   3.762   1.303 -0.372000         n
+ATOM      5  OXT UNK     1      -0.625   4.253  -0.366 -0.382000         o
+ATOM      6  CB  UNK     1      -0.086   1.342  -0.797 -0.087000        c3
+ATOM      7  CG  UNK     1      -0.334  -0.146  -0.845 -0.157000        cc
+ATOM      8  CD1 UNK     1      -1.283  -0.784  -1.544 -0.049000        cd
+ATOM      9  CD2 UNK     1       0.374  -1.151  -0.173 -0.075000        ca
+ATOM     10  CE3 UNK     1       1.467  -1.041   0.695 -0.080000        ca
+ATOM     11  CE2 UNK     1      -0.126  -2.351  -0.454  0.003000        ca
+ATOM     12  NE1 UNK     1      -1.130  -2.181  -1.279 -0.211000        na
+ATOM     13  CZ2 UNK     1       0.368  -3.553   0.066 -0.138000        ca
+ATOM     14  CH2 UNK     1       1.453  -3.444   0.927 -0.045000        ca
+ATOM     15  CZ3 UNK     1       1.982  -2.240   1.230 -0.149000        ca
+ATOM     16  HA  UNK     1      -0.280   1.531   1.328  0.145000        h1
+ATOM     17  HB2 UNK     1       0.991   1.508  -0.827  0.102500        hc
+ATOM     18  HB3 UNK     1      -0.532   1.796  -1.683  0.102500        hc
+ATOM     19  HD1 UNK     1      -2.023  -0.329  -2.185  0.172000        h4
+ATOM     20  HE3 UNK     1       1.897  -0.082   0.943  0.137000        ha
+ATOM     21  HZ2 UNK     1      -0.068  -4.508  -0.188  0.148000        ha
+ATOM     22  Cl1 UNK     1       2.057  -4.708   1.541 -0.022000        cl
+ATOM     23  HZ3 UNK     1       2.825  -2.192   1.904  0.145000        ha
+ATOM     24  HE1 UNK     1      -1.703  -2.918  -1.665  0.252000        hn
+ATOM     25  H11 UNK     1       1.206   3.047   1.922  0.229000        hn
+ATOM     26  C1  UNK     1       1.398   5.102   1.358 -0.080000        c3
+ATOM     27  H4  UNK     1       2.174   5.147   2.123  0.085333        h1
+ATOM     28  H1  UNK     1       1.827   5.359   0.390  0.085333        h1
+ATOM     29  HC11UNK     1       0.604   5.807   1.603  0.085333        h1
+ATOM     30  H2  UNK     1      -2.591   2.918   0.435  0.228000        hn
+ATOM     31  C2  UNK     1      -2.809   0.789   0.435  0.293000         c
+ATOM     32  O1  UNK     1      -2.190  -0.283   0.435 -0.361000         o
+ATOM     33  C3  UNK     1      -4.334   0.789   0.435 -0.243000        c3
+ATOM     34  H31 UNK     1      -4.698  -0.238   0.435  0.107667        hc
+ATOM     35  H32 UNK     1      -4.697   1.303  -0.455  0.107667        hc
+ATOM     36  HC31UNK     1      -4.697   1.303   1.325  0.107667        hc
+BOND    1    2    1    1     CA    N
+BOND    2    3    2    1      C   CA
+BOND    3    4    3    1     N1    C
+BOND    4    5    3    2    OXT    C
+BOND    5    6    2    1     CB   CA
+BOND    6    7    6    1     CG   CB
+BOND    7    8    7    8    CD1   CG
+BOND    8    9    7    7    CD2   CG
+BOND    9   10    9    8    CE3  CD2
+BOND   10   11    9    7    CE2  CD2
+BOND   11   12   11    8    NE1  CE2
+BOND   12   13   11    7    CZ2  CE2
+BOND   13   14   13    8    CH2  CZ2
+BOND   14   15   14    7    CZ3  CH2
+BOND   15   15   10    7    CZ3  CE3
+BOND   16   12    8    7    NE1  CD1
+BOND   17   16    2    1     HA   CA
+BOND   18   17    6    1    HB2   CB
+BOND   19   18    6    1    HB3   CB
+BOND   20   19    8    1    HD1  CD1
+BOND   21   20   10    1    HE3  CE3
+BOND   22   21   13    1    HZ2  CZ2
+BOND   23   22   14    1    Cl1  CH2
+BOND   24   23   15    1    HZ3  CZ3
+BOND   25   24   12    1    HE1  NE1
+BOND   26   25    4    1    H11   N1
+BOND   27   26    4    1     C1   N1
+BOND   28   27   26    1     H4   C1
+BOND   29   28   26    1     H1   C1
+BOND   30   29   26    1   HC11   C1
+BOND   31   30    1    1     H2    N
+BOND   32   31    1    1     C2    N
+BOND   33   32   31    2     O1   C2
+BOND   34   33   31    1     C3   C2
+BOND   35   34   33    1    H31   C3
+BOND   36   35   33    1    H32   C3
+BOND   37   36   33    1   HC31   C3
