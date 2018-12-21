@@ -1,0 +1,27 @@
+source oldff/leaprc.ff99SBildn
+loadamberparams frcmod.ff99SBnmr
+source leaprc.gaff
+gaff = loadamberparams gaff.dat
+ligand = sequence {PHE ASP TRP LEU ASN PHE GLN TYR PRO PRO}
+impose ligand {1} { {N CA C N 111.376} }
+impose ligand {1} { {C N CA C -95.475} }
+impose ligand {2} { {N CA C N 136.591} }
+impose ligand {2} { {C N CA C -89.714} }
+impose ligand {3} { {N CA C N 113.452} }
+impose ligand {3} { {C N CA C -151.946} }
+impose ligand {4} { {N CA C N -122.734} }
+impose ligand {4} { {C N CA C 50.611} }
+impose ligand {5} { {N CA C N 5.147} }
+impose ligand {5} { {C N CA C -80.847} }
+impose ligand {6} { {N CA C N 165.092} }
+impose ligand {6} { {C N CA C -131.562} }
+impose ligand {7} { {N CA C N 131.857} }
+impose ligand {7} { {C N CA C -132.023} }
+impose ligand {8} { {N CA C N 78.713} }
+impose ligand {9} { {N CA C N -133.349} }
+impose ligand {10} { {N CA C N -2.222} }
+bond ligand.1.N ligand.10.C
+
+saveAmberParm ligand ligand.prmtop ligand.crd
+
+quit
