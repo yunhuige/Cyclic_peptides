@@ -1,4 +1,4 @@
-; ligand_GMX.top created by acpype (v: 2018-09-20T16:44:17UTC) on Thu Dec 20 19:36:40 2018
+; ligand_GMX.top created by acpype (v: 2018-09-20T16:44:17UTC) on Fri Dec 21 12:22:27 2018
 
 ;Include forcefield parameters
 #include "./amber99sbnmr1-ildn.ff/forcefield.itp"

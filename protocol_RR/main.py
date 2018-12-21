@@ -40,11 +40,13 @@ def top_edit(top):
 
 # Directory for Chimera app
 chimera='/Applications/Chimera.app/Contents/MacOS/chimera'
+# Directory for acpype scipt
+acpype='/Users/tuc41004/amber18/acpype/acpype.py'
 # tleap *.in files
-in_files='/Volumes/RMR_4TB/Research/Cyclic_peptide/tleap_in_files'
+in_files='/Volumes/RMR_4TB/Research/Cyclic_peptide/Cyclic_peptides/protocol_RR/tleap_in_files'
 # Provide the working directory for this program
-WD='/Volumes/RMR_4TB/Research/Cyclic_peptides/protocol/'
-# Provide the RUN Directory
+WD='/Volumes/RMR_4TB/Research/Cyclic_peptide/Cyclic_peptides/protocol_RR/'
+# Provide the output RUNS Directory
 RUNS=WD+'RUNS/'
 
 # Provide a list of the sequences
@@ -52,6 +54,10 @@ seq = [1,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,
         25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,
         48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,
         67,68,69,70,71,72,73,74,75,76,77,78,79,80]
+
+# List the files that need to be moved over to the RUNS directories
+neededFiles_dir = '/Volumes/RMR_4TB/Research/Cyclic_peptide/Cyclic_peptides/protocol/cb2rr/new_test/'
+neededFiles = ['amber99sbnmr1-ildn.ff','mdp','spc216.gro','index.ndx','solv_ions.gro']
 
 # Create a file for mapping information
 logFile = "mapping.txt"
@@ -65,9 +71,16 @@ if os.path.isfile(errorFile):
     run_cmd('mv errors.txt old_errors.txt')
 run_cmd("touch %s"%errorFile)
 
-# List the files that need to be moved over to the RUNS directories
-mov_dir = '/Volumes/RMR_4TB/Research/Cyclic_peptide/Cyclic_peptides/protocol/cb2rr/new_test/'
-moving = ['amber99sbnmr1-ildn.ff','mdp','spc216.gro','index.ndx','solv_ions.gro']
+# Create a RUNS Output directory if one doesn't exist
+if not os.path.isdir('%s'%(RUNS)):
+    run_cmd('mkdir %s'%(RUNS))
+
+# Clean up these files:
+acpypeFiles = ['ligand.prmtop','ligand.crd']
+for f in acpypeFiles:
+    run_cmd('rm -v %s%s'%(WD,f))
+
+
 #}}}
 
 # Main:{{{
@@ -87,19 +100,25 @@ for i in range(0,len(seq)):
         run_cmd('tleap -f %s/tleap_%s.in'%(in_files,seq[i]))
 
         # Use acpype to generate gromacs structure and topology files
-        run_cmd('/Users/tuc41004/amber18/acpype/acpype.py -p ligand.prmtop -x ligand.crd -d -o gmx;')
+        run_cmd('%s -p ligand.prmtop -x ligand.crd -d -o gmx;'%acpype)
         # Name the files produced from acpype:
         gro = 'ligand_GMX.gro'
         top = 'ligand_GMX.top'
 
-        # Copy the important files over to its corresponding directory.
-        for j in range(len(moving)):
-            run_cmd('cp -rv %s%s %s%s'%(mov_dir,moving[j],RUNS,n))
-        run_cmd('mv -v %s %s%s'%(gro,RUNS,n))
-        run_cmd('mv -v %s %s%s'%(top,RUNS,n))
+        # Creating variable for output directory (.../RUNS/#)
+        outDir = str(RUNS)+str(n)
 
-        top = str(RUNS)+str(n)+'/'+str(top)
+        # Copy the important files over to its corresponding directory.
+        for j in range(len(neededFiles)):
+            run_cmd('cp -rv %s%s %s'%(neededFiles_dir,neededFiles[j],outDir))
+        run_cmd('mv -v %s %s'%(gro,outDir))
+        run_cmd('mv -v %s %s'%(top,outDir))
+
+        for f in acpypeFiles:
+            run_cmd('mv -v %s%s %s'%(WD,f,outDir))
+
         # Edit the topology file
+        top = outDir+'/'+str(top)
         top_edit(top)
 
         # Using Chimera to modify the chirality of a particular ligand
@@ -116,12 +135,12 @@ for i in range(0,len(seq)):
             fout.close()
 
         #NOTE: Remove the old files and overwrite old name to be consistent
-        run_cmd('cp -v %s %s'%(str(RUNS)+str(n)+"/ligand_GMX_invert_angles.pdb",
-            str(RUNS)+str(n)+"/ligand_GMX_invert.pdb"))
-        run_cmd('rm %s'%(str(RUNS)+str(n)+str('/ligand_GMX_invert_angles.pdb')))
+        run_cmd('cp -v %s %s'%(outDir+"/ligand_GMX_invert_angles.pdb",
+            outDir+"/ligand_GMX_invert.pdb"))
+        run_cmd('rm %s'%(outDir+str('/ligand_GMX_invert_angles.pdb')))
 
         # Copy the runme.sh for simulation script to each RUN
-        run_cmd('cp runme.sh %s'%(str(RUNS)+str(n)))
+        run_cmd('cp runme.sh %s'%(outDir))
 
         # Append to a file that contains the mapping from RUN# --> sequence#
         print("Appending to %s..."%logFile)
