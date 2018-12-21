@@ -55,6 +55,7 @@ seq = [1,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,
         48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,
         67,68,69,70,71,72,73,74,75,76,77,78,79,80]
 
+
 # List the files that need to be moved over to the RUNS directories
 neededFiles_dir = '/Volumes/RMR_4TB/Research/Cyclic_peptide/Cyclic_peptides/protocol/cb2rr/new_test/'
 neededFiles = ['amber99sbnmr1-ildn.ff','mdp','spc216.gro','index.ndx','solv_ions.gro']
@@ -142,12 +143,12 @@ for i in range(0,len(seq)):
         # Copy the runme.sh for simulation script to each RUN
         run_cmd('cp runme.sh %s'%(outDir))
 
-        # Append to a file that contains the mapping from RUN# --> sequence#
-        print("Appending to %s..."%logFile)
-        fout = open(logFile,"a+")
-        fout.write("%s --> %s\n"%(n,seq[i]))
-        fout.close()
-        n += 1
+    # Append to a file that contains the mapping from RUN# --> sequence#
+    print("Appending to %s..."%logFile)
+    fout = open(logFile,"a+")
+    fout.write("%s --> %s\n"%(n,seq[i]))
+    fout.close()
+    n += 1
 
 
 #}}}
