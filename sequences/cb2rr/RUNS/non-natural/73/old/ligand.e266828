@@ -1,0 +1,550 @@
+                   :-) GROMACS - gmx grompp, VERSION 5.1 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov  Herman J.C. Berendsen    Par Bjelkmar   
+ Aldert van Buuren   Rudi van Drunen     Anton Feenstra   Sebastian Fritsch 
+  Gerrit Groenhof   Christoph Junghans   Anca Hamuraru    Vincent Hindriksen
+ Dimitrios Karkoulis    Peter Kasson        Jiri Kraus      Carsten Kutzner  
+    Per Larsson      Justin A. Lemkul   Magnus Lundborg   Pieter Meulenhoff 
+   Erik Marklund      Teemu Murtola       Szilard Pall       Sander Pronk   
+   Roland Schulz     Alexey Shvetsov     Michael Shirts     Alfons Sijbers  
+   Peter Tieleman    Teemu Virolainen  Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2015, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx grompp, VERSION 5.1
+Executable:   /share/apps/gromacs/5.1.0/bin/gmx
+Data prefix:  /share/apps/gromacs/5.1.0
+Command line:
+  gmx grompp -f mdp/minimize.mdp -c solv_ions.gro -p new.top -n index.ndx -o minimize2.tpr -maxwarn -1
+
+
+NOTE 1 [file mdp/minimize.mdp, line 48]:
+  mdp/minimize.mdp did not specify a value for the .mdp option
+  "cutoff-scheme". Probably it was first intended for use with GROMACS
+  before 4.6. In 4.6, the Verlet scheme was introduced, but the group
+  scheme was still the default. The default is now the Verlet scheme, so
+  you will observe different behaviour.
+
+Ignoring obsolete mdp entry 'title'
+Ignoring obsolete mdp entry 'cpp'
+Replacing old mdp entry 'nstxtcout' by 'nstxout-compressed'
+Replacing old mdp entry 'xtc_grps' by 'compressed-x-grps'
+
+Back Off! I just backed up mdout.mdp to ./#mdout.mdp.3#
+
+NOTE 2 [file mdp/minimize.mdp]:
+  nstcomm < nstcalcenergy defeats the purpose of nstcalcenergy, setting
+  nstcomm to nstcalcenergy
+
+Setting the LD random seed to 1302777100
+
+WARNING 1 [file new.top, line 8]:
+  Overriding atomtype N
+
+
+WARNING 2 [file new.top, line 9]:
+  Overriding atomtype H
+
+
+WARNING 3 [file new.top, line 10]:
+  Overriding atomtype CT
+
+
+WARNING 4 [file new.top, line 11]:
+  Overriding atomtype H1
+
+
+WARNING 5 [file new.top, line 12]:
+  Overriding atomtype HC
+
+
+WARNING 6 [file new.top, line 13]:
+  Overriding atomtype CA
+
+
+WARNING 7 [file new.top, line 14]:
+  Overriding atomtype HA
+
+
+WARNING 8 [file new.top, line 15]:
+  Overriding atomtype C
+
+
+WARNING 9 [file new.top, line 16]:
+  Overriding atomtype O
+
+
+WARNING 10 [file new.top, line 17]:
+  Overriding atomtype O2
+
+
+WARNING 11 [file new.top, line 27]:
+  Overriding atomtype C*
+
+
+WARNING 12 [file new.top, line 28]:
+  Overriding atomtype CW
+
+
+WARNING 13 [file new.top, line 29]:
+  Overriding atomtype H4
+
+
+WARNING 14 [file new.top, line 30]:
+  Overriding atomtype NA
+
+
+WARNING 15 [file new.top, line 31]:
+  Overriding atomtype CN
+
+
+WARNING 16 [file new.top, line 32]:
+  Overriding atomtype CB
+
+Generated 2850 of the 2850 non-bonded parameter combinations
+Generating 1-4 interactions: fudge = 0.5
+Generated 2850 of the 2850 1-4 parameter combinations
+Excluding 3 bonded neighbours molecule type 'ligand'
+Excluding 2 bonded neighbours molecule type 'SOL'
+Excluding 1 bonded neighbours molecule type 'NA'
+Excluding 1 bonded neighbours molecule type 'CL'
+Removing all charge groups because cutoff-scheme=Verlet
+Number of degrees of freedom in T-Coupling group System is 19635.00
+Estimate for the relative computational load of the PME mesh part: 0.21
+
+There were 2 notes
+
+There were 16 warnings
+
+Back Off! I just backed up minimize2.tpr to ./#minimize2.tpr.1#
+
+gcq#281: "It Just Tastes Better" (Burger King)
+
+                    :-) GROMACS - gmx mdrun, VERSION 5.1 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov  Herman J.C. Berendsen    Par Bjelkmar   
+ Aldert van Buuren   Rudi van Drunen     Anton Feenstra   Sebastian Fritsch 
+  Gerrit Groenhof   Christoph Junghans   Anca Hamuraru    Vincent Hindriksen
+ Dimitrios Karkoulis    Peter Kasson        Jiri Kraus      Carsten Kutzner  
+    Per Larsson      Justin A. Lemkul   Magnus Lundborg   Pieter Meulenhoff 
+   Erik Marklund      Teemu Murtola       Szilard Pall       Sander Pronk   
+   Roland Schulz     Alexey Shvetsov     Michael Shirts     Alfons Sijbers  
+   Peter Tieleman    Teemu Virolainen  Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2015, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx mdrun, VERSION 5.1
+Executable:   /share/apps/gromacs/5.1.0/bin/gmx
+Data prefix:  /share/apps/gromacs/5.1.0
+Command line:
+  gmx mdrun -v -nt 1 -s minimize2.tpr -c solvent_ions_minimized.gro
+
+
+Back Off! I just backed up md.log to ./#md.log.2#
+
+Running on 1 node with total 20 cores, 20 logical cores
+Hardware detected:
+  CPU info:
+    Vendor: GenuineIntel
+    Brand:  Intel(R) Xeon(R) CPU E5-2660 v3 @ 2.60GHz
+    SIMD instructions most likely to fit this hardware: AVX2_256
+    SIMD instructions selected at GROMACS compile time: AVX_256
+
+Compiled SIMD instructions: AVX_256, GROMACS could use AVX2_256 on this machine, which is better
+
+Reading file minimize2.tpr, VERSION 5.1 (single precision)
+The number of OpenMP threads was set by environment variable OMP_NUM_THREADS to 1
+Using 1 MPI thread
+Using 1 OpenMP thread 
+
+
+Back Off! I just backed up traj.trr to ./#traj.trr.1#
+
+Back Off! I just backed up ener.edr to ./#ener.edr.1#
+
+Steepest Descents:
+   Tolerance (Fmax)   =  1.00000e+01
+   Number of steps    =       500000
+Step=    0, Dmax= 1.0e-02 nm, Epot=  1.30694e+11 Fmax= 3.86677e+13, atom= 32
+Step=    1, Dmax= 1.0e-02 nm, Epot=  1.25623e+09 Fmax= 2.09551e+11, atom= 32
+Step=    2, Dmax= 1.2e-02 nm, Epot=  1.30697e+08 Fmax= 1.65202e+10, atom= 38
+Step=    3, Dmax= 1.4e-02 nm, Epot=  1.99282e+07 Fmax= 1.33779e+09, atom= 32
+Step=    4, Dmax= 1.7e-02 nm, Epot=  3.30322e+06 Fmax= 1.57808e+08, atom= 33
+Step=    5, Dmax= 2.1e-02 nm, Epot=  1.10609e+06 Fmax= 1.13480e+07, atom= 32
+Step=    6, Dmax= 2.5e-02 nm, Epot=  5.25135e+05 Fmax= 3.98769e+06, atom= 36
+Step=    7, Dmax= 3.0e-02 nm, Epot=  4.43311e+05 Fmax= 2.90893e+06, atom= 33
+Step=    8, Dmax= 3.6e-02 nm, Epot=  3.95650e+05 Fmax= 1.15121e+06, atom= 33
+Step=    9, Dmax= 4.3e-02 nm, Epot=  3.34088e+05 Fmax= 5.18553e+05, atom= 176
+Step=   10, Dmax= 5.2e-02 nm, Epot=  2.53515e+05 Fmax= 4.66916e+05, atom= 176
+Step=   11, Dmax= 6.2e-02 nm, Epot=  1.85729e+05 Fmax= 3.96832e+05, atom= 176
+Step=   12, Dmax= 7.4e-02 nm, Epot=  1.28549e+05 Fmax= 3.88958e+05, atom= 6304
+
+step 13: Water molecule starting at atom 6304 can not be settled.
+Check for bad contacts and/or reduce the timestep if appropriate.
+
+Back Off! I just backed up step13b.pdb to ./#step13b.pdb.1#
+
+Back Off! I just backed up step13c.pdb to ./#step13c.pdb.1#
+Wrote pdb files with previous and current coordinates
+Step=   13, Dmax= 8.9e-02 nm, Epot=  8.95744e+04 Fmax= 2.59091e+05, atom= 1
+Step=   14, Dmax= 1.1e-01 nm, Epot=  3.72961e+04 Fmax= 1.23328e+05, atom= 176
+Step=   15, Dmax= 1.3e-01 nm, Epot=  1.54733e+04 Fmax= 1.83852e+06, atom= 133
+Step=   16, Dmax= 1.5e-01 nm, Epot=  4.02928e+04 Fmax= 2.05435e+06, atom= 150Step=   17, Dmax= 7.7e-02 nm, Epot=  3.84661e+03 Fmax= 1.90352e+05, atom= 177
+Step=   18, Dmax= 9.2e-02 nm, Epot= -1.30361e+04 Fmax= 5.77015e+04, atom= 2
+Step=   19, Dmax= 1.1e-01 nm, Epot= -3.21884e+04 Fmax= 2.84001e+05, atom= 130
+Step=   20, Dmax= 1.3e-01 nm, Epot=  1.65290e+05 Fmax= 2.14263e+07, atom= 130Step=   21, Dmax= 6.7e-02 nm, Epot= -3.20154e+04 Fmax= 5.01256e+05, atom= 130Step=   22, Dmax= 3.3e-02 nm, Epot= -3.87238e+04 Fmax= 5.73676e+04, atom= 177
+Step=   23, Dmax= 4.0e-02 nm, Epot= -3.84428e+04 Fmax= 6.51339e+05, atom= 130Step=   24, Dmax= 2.0e-02 nm, Epot= -4.34071e+04 Fmax= 5.03257e+04, atom= 130
+Step=   25, Dmax= 2.4e-02 nm, Epot= -4.89236e+04 Fmax= 3.90895e+05, atom= 130
+Step=   26, Dmax= 2.9e-02 nm, Epot= -4.59925e+04 Fmax= 4.59732e+04, atom= 176Step=   27, Dmax= 1.4e-02 nm, Epot= -4.71915e+04 Fmax= 1.10176e+05, atom= 176Step=   28, Dmax= 7.2e-03 nm, Epot= -5.22548e+04 Fmax= 1.39553e+06, atom= 176
+Step=   29, Dmax= 8.6e-03 nm, Epot= -4.81809e+04 Fmax= 2.39251e+05, atom= 130Step=   30, Dmax= 4.3e-03 nm, Epot= -5.47386e+04 Fmax= 2.56765e+06, atom= 130
+Step=   31, Dmax= 5.2e-03 nm, Epot= -5.05008e+04 Fmax= 7.69721e+05, atom= 176Step=   32, Dmax= 2.6e-03 nm, Epot= -6.77948e+04 Fmax= 1.47299e+07, atom= 176
+Step=   33, Dmax= 3.1e-03 nm, Epot= -5.26653e+04 Fmax= 1.55720e+06, atom= 130Step=   34, Dmax= 1.6e-03 nm, Epot= -6.69051e+04 Fmax= 1.35858e+07, atom= 130Step=   35, Dmax= 7.8e-04 nm, Epot= -1.12205e+06 Fmax= 3.40472e+10, atom= 130
+Step=   36, Dmax= 9.3e-04 nm, Epot= -6.39885e+04 Fmax= 1.01572e+07, atom= 176Step=   37, Dmax= 4.7e-04 nm, Epot= -8.32245e+04 Fmax= 4.20341e+07, atom= 176Step=   38, Dmax= 2.3e-04 nm, Epot= -1.23858e+05 Fmax= 1.80812e+08, atom= 176Step=   39, Dmax= 1.2e-04 nm, Epot= -2.14466e+05 Fmax= 8.39044e+08, atom= 176Step=   40, Dmax= 5.8e-05 nm, Epot= -4.47377e+05 Fmax= 4.74471e+09, atom= 176Step=   41, Dmax= 2.9e-05 nm, Epot= -1.33696e+06 Fmax= 4.89950e+10, atom= 176
+Step=   42, Dmax= 3.5e-05 nm, Epot= -8.30931e+05 Fmax= 1.81210e+10, atom= 130Step=   43, Dmax= 1.7e-05 nm, Epot= -3.92539e+06 Fmax= 4.42112e+11, atom= 130
+Step=   44, Dmax= 2.1e-05 nm, Epot= -1.07235e+06 Fmax= 3.09768e+10, atom= 176Step=   45, Dmax= 1.0e-05 nm, Epot= -2.81930e+06 Fmax= 2.25976e+11, atom= 176Step=   46, Dmax= 5.2e-06 nm, Epot= -1.74979e+07 Fmax= 8.94121e+12, atom= 130
+Step=   47, Dmax= 6.3e-06 nm, Epot= -3.16279e+06 Fmax= 2.85403e+11, atom= 130Step=   48, Dmax= 3.1e-06 nm, Epot= -7.99281e+06 Fmax= 1.85468e+12, atom= 130Step=   49, Dmax= 1.6e-06 nm, Epot= -2.75359e+07 Fmax= 2.21874e+13, atom= 130
+Step=   50, Dmax= 1.9e-06 nm, Epot= -1.21586e+07 Fmax= 4.30979e+12, atom= 130
+Energy minimization has stopped, but the forces have not converged to the
+requested precision Fmax < 10 (which may not be possible for your system). It
+stopped because the algorithm tried to make a new step whose size was too
+small, or there was no change in the energy since last step. Either way, we
+regard the minimization as converged to within the available machine
+precision, given your starting configuration and EM parameters.
+
+Double precision normally gives you higher accuracy, but this is often not
+needed for preparing to run molecular dynamics.
+You might need to increase your constraint accuracy, or turn
+off constraints altogether (set constraints = none in mdp file)
+
+writing lowest energy coordinates.
+
+Back Off! I just backed up solvent_ions_minimized.gro to ./#solvent_ions_minimized.gro.1#
+
+Steepest Descents converged to machine precision in 51 steps,
+but did not reach the requested Fmax < 10.
+Potential Energy  = -2.7535930e+07
+Maximum force     =  2.2187445e+13 on atom 130
+Norm of force     =  3.1821611e+11
+
+NOTE: 22 % of the run time was spent in pair search,
+      you might want to increase nstlist (this has no effect on accuracy)
+
+
+gcq#150: "With a Lead Filled Snowshoe" (F. Zappa)
+
+                   :-) GROMACS - gmx grompp, VERSION 5.1 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov  Herman J.C. Berendsen    Par Bjelkmar   
+ Aldert van Buuren   Rudi van Drunen     Anton Feenstra   Sebastian Fritsch 
+  Gerrit Groenhof   Christoph Junghans   Anca Hamuraru    Vincent Hindriksen
+ Dimitrios Karkoulis    Peter Kasson        Jiri Kraus      Carsten Kutzner  
+    Per Larsson      Justin A. Lemkul   Magnus Lundborg   Pieter Meulenhoff 
+   Erik Marklund      Teemu Murtola       Szilard Pall       Sander Pronk   
+   Roland Schulz     Alexey Shvetsov     Michael Shirts     Alfons Sijbers  
+   Peter Tieleman    Teemu Virolainen  Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2015, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx grompp, VERSION 5.1
+Executable:   /share/apps/gromacs/5.1.0/bin/gmx
+Data prefix:  /share/apps/gromacs/5.1.0
+Command line:
+  gmx grompp -f mdp/equil.mdp -c solvent_ions_minimized.gro -p new.top -n index.ndx -o equil.tpr -maxwarn -1
+
+
+NOTE 1 [file mdp/equil.mdp, line 40]:
+  mdp/equil.mdp did not specify a value for the .mdp option
+  "cutoff-scheme". Probably it was first intended for use with GROMACS
+  before 4.6. In 4.6, the Verlet scheme was introduced, but the group
+  scheme was still the default. The default is now the Verlet scheme, so
+  you will observe different behaviour.
+
+Ignoring obsolete mdp entry 'title'
+Ignoring obsolete mdp entry 'cpp'
+Replacing old mdp entry 'nstxtcout' by 'nstxout-compressed'
+Replacing old mdp entry 'xtc_grps' by 'compressed-x-grps'
+
+Back Off! I just backed up mdout.mdp to ./#mdout.mdp.4#
+
+NOTE 2 [file mdp/equil.mdp]:
+  nstcomm < nstcalcenergy defeats the purpose of nstcalcenergy, setting
+  nstcomm to nstcalcenergy
+
+
+NOTE 3 [file mdp/equil.mdp]:
+  The Berendsen thermostat does not generate the correct kinetic energy
+  distribution. You might want to consider using the V-rescale thermostat.
+
+Setting the LD random seed to 2077402255
+
+WARNING 1 [file new.top, line 8]:
+  Overriding atomtype N
+
+
+WARNING 2 [file new.top, line 9]:
+  Overriding atomtype H
+
+
+WARNING 3 [file new.top, line 10]:
+  Overriding atomtype CT
+
+
+WARNING 4 [file new.top, line 11]:
+  Overriding atomtype H1
+
+
+WARNING 5 [file new.top, line 12]:
+  Overriding atomtype HC
+
+
+WARNING 6 [file new.top, line 13]:
+  Overriding atomtype CA
+
+
+WARNING 7 [file new.top, line 14]:
+  Overriding atomtype HA
+
+
+WARNING 8 [file new.top, line 15]:
+  Overriding atomtype C
+
+
+WARNING 9 [file new.top, line 16]:
+  Overriding atomtype O
+
+
+WARNING 10 [file new.top, line 17]:
+  Overriding atomtype O2
+
+
+WARNING 11 [file new.top, line 27]:
+  Overriding atomtype C*
+
+
+WARNING 12 [file new.top, line 28]:
+  Overriding atomtype CW
+
+
+WARNING 13 [file new.top, line 29]:
+  Overriding atomtype H4
+
+
+WARNING 14 [file new.top, line 30]:
+  Overriding atomtype NA
+
+
+WARNING 15 [file new.top, line 31]:
+  Overriding atomtype CN
+
+
+WARNING 16 [file new.top, line 32]:
+  Overriding atomtype CB
+
+Generated 2850 of the 2850 non-bonded parameter combinations
+Generating 1-4 interactions: fudge = 0.5
+Generated 2850 of the 2850 1-4 parameter combinations
+Excluding 3 bonded neighbours molecule type 'ligand'
+Excluding 2 bonded neighbours molecule type 'SOL'
+Excluding 1 bonded neighbours molecule type 'NA'
+Excluding 1 bonded neighbours molecule type 'CL'
+Velocities were taken from a Maxwell distribution at 300 K
+Removing all charge groups because cutoff-scheme=Verlet
+Number of degrees of freedom in T-Coupling group Protein is 450.00
+Number of degrees of freedom in T-Coupling group Water_and_ions is 19104.00
+Estimate for the relative computational load of the PME mesh part: 0.23
+
+There were 3 notes
+
+There were 16 warnings
+
+Back Off! I just backed up equil.tpr to ./#equil.tpr.1#
+
+gcq#448: "For those who want some proof that physicists are human, the proof is in the idiocy of all the different units which they use for measuring energy." (Richard Feynman)
+
+                    :-) GROMACS - gmx mdrun, VERSION 5.1 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov  Herman J.C. Berendsen    Par Bjelkmar   
+ Aldert van Buuren   Rudi van Drunen     Anton Feenstra   Sebastian Fritsch 
+  Gerrit Groenhof   Christoph Junghans   Anca Hamuraru    Vincent Hindriksen
+ Dimitrios Karkoulis    Peter Kasson        Jiri Kraus      Carsten Kutzner  
+    Per Larsson      Justin A. Lemkul   Magnus Lundborg   Pieter Meulenhoff 
+   Erik Marklund      Teemu Murtola       Szilard Pall       Sander Pronk   
+   Roland Schulz     Alexey Shvetsov     Michael Shirts     Alfons Sijbers  
+   Peter Tieleman    Teemu Virolainen  Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2015, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx mdrun, VERSION 5.1
+Executable:   /share/apps/gromacs/5.1.0/bin/gmx
+Data prefix:  /share/apps/gromacs/5.1.0
+Command line:
+  gmx mdrun -v -nt 10 -s equil.tpr -c solvent_ions_equilibrated.gro
+
+
+Back Off! I just backed up md.log to ./#md.log.3#
+
+Running on 1 node with total 20 cores, 20 logical cores
+Hardware detected:
+  CPU info:
+    Vendor: GenuineIntel
+    Brand:  Intel(R) Xeon(R) CPU E5-2660 v3 @ 2.60GHz
+    SIMD instructions most likely to fit this hardware: AVX2_256
+    SIMD instructions selected at GROMACS compile time: AVX_256
+
+Compiled SIMD instructions: AVX_256, GROMACS could use AVX2_256 on this machine, which is better
+
+Reading file equil.tpr, VERSION 5.1 (single precision)
+Changing nstlist from 10 to 40, rlist from 0.9 to 0.9
+
+The number of OpenMP threads was set by environment variable OMP_NUM_THREADS to 1
+
+-------------------------------------------------------
+Program gmx mdrun, VERSION 5.1
+Source code file: /home/install/sources/gromacs/gromacs-5.1/src/gromacs/domdec/domdec.cpp, line: 6969
+
+Fatal error:
+There is no domain decomposition for 10 ranks that is compatible with the given box and a minimum cell size of 1.75406 nm
+Change the number of ranks or mdrun option -rdd or -dds
+Look in the log file for details on the domain decomposition
+For more information and tips for troubleshooting, please check the GROMACS
+website at http://www.gromacs.org/Documentation/Errors
+-------------------------------------------------------
+
+                   :-) GROMACS - gmx grompp, VERSION 5.1 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov  Herman J.C. Berendsen    Par Bjelkmar   
+ Aldert van Buuren   Rudi van Drunen     Anton Feenstra   Sebastian Fritsch 
+  Gerrit Groenhof   Christoph Junghans   Anca Hamuraru    Vincent Hindriksen
+ Dimitrios Karkoulis    Peter Kasson        Jiri Kraus      Carsten Kutzner  
+    Per Larsson      Justin A. Lemkul   Magnus Lundborg   Pieter Meulenhoff 
+   Erik Marklund      Teemu Murtola       Szilard Pall       Sander Pronk   
+   Roland Schulz     Alexey Shvetsov     Michael Shirts     Alfons Sijbers  
+   Peter Tieleman    Teemu Virolainen  Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2015, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx grompp, VERSION 5.1
+Executable:   /share/apps/gromacs/5.1.0/bin/gmx
+Data prefix:  /share/apps/gromacs/5.1.0
+Command line:
+  gmx grompp -f mdp/equil_NVT.mdp -c solvent_ions_equilibrated.gro -p new.top -n index.ndx -o equil2.tpr -maxwarn -1
+
+
+-------------------------------------------------------
+Program:     gmx grompp, VERSION 5.1
+Source file: src/gromacs/commandline/cmdlineparser.cpp (line 234)
+Function:    void gmx::CommandLineParser::parse(int*, char**)
+
+Error in user input:
+Invalid command-line options
+  In command-line option -c
+    File 'solvent_ions_equilibrated.gro' does not exist or is not accessible.
+
+For more information and tips for troubleshooting, please check the GROMACS
+website at http://www.gromacs.org/Documentation/Errors
+-------------------------------------------------------
+                    :-) GROMACS - gmx mdrun, VERSION 5.1 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov  Herman J.C. Berendsen    Par Bjelkmar   
+ Aldert van Buuren   Rudi van Drunen     Anton Feenstra   Sebastian Fritsch 
+  Gerrit Groenhof   Christoph Junghans   Anca Hamuraru    Vincent Hindriksen
+ Dimitrios Karkoulis    Peter Kasson        Jiri Kraus      Carsten Kutzner  
+    Per Larsson      Justin A. Lemkul   Magnus Lundborg   Pieter Meulenhoff 
+   Erik Marklund      Teemu Murtola       Szilard Pall       Sander Pronk   
+   Roland Schulz     Alexey Shvetsov     Michael Shirts     Alfons Sijbers  
+   Peter Tieleman    Teemu Virolainen  Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2015, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx mdrun, VERSION 5.1
+Executable:   /share/apps/gromacs/5.1.0/bin/gmx
+Data prefix:  /share/apps/gromacs/5.1.0
+Command line:
+  gmx mdrun -v -nt 10 -s equil2.tpr -c solvent_ions_equilibrated2.gro
+
+
+-------------------------------------------------------
+Program:     gmx mdrun, VERSION 5.1
+Source file: src/gromacs/commandline/cmdlineparser.cpp (line 234)
+Function:    void gmx::CommandLineParser::parse(int*, char**)
+
+Error in user input:
+Invalid command-line options
+  In command-line option -s
+    File 'equil2.tpr' does not exist or is not accessible.
+
+For more information and tips for troubleshooting, please check the GROMACS
+website at http://www.gromacs.org/Documentation/Errors
+-------------------------------------------------------

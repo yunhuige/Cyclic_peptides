@@ -1,0 +1,49 @@
+title                    = equil_GBSA
+cpp                      = /lib/cpp
+include                  = -I../top
+define                   = 
+integrator               = sd
+dt                       = 0.002
+nsteps                   = 500000
+nstxout                  = 5000
+nstvout                  = 5000
+nstlog                   = 5000
+nstxtcout                = 5000
+
+implicit_solvent = GBSA
+gb_algorithm     = OBC
+nstgbradii       = 1
+gb_epsilon_solvent = 80.0
+sa_algorithm    = Ace-approximation
+
+comm_mode = ANGULAR
+
+rgbradii         = 0.9
+coulombtype     = Cut-off
+rvdw            = 0.9
+rlist           = 0.9
+rcoulomb        = 0.9
+
+; CONSTRAINTS
+constraints     = hbonds
+constraint_algorithm = LINCS
+
+; other stuff
+bd_fric        = 1.0
+nstcomm                  = 10
+comm_grps                = System
+xtc_grps                 = Protein
+energygrps               = System
+nstlist                  = 10
+ns_type                  = grid
+tc-grps                  = System 
+tau_t                    = 0.0109
+
+ref_t                    = 300
+compressibility          = 4.5e-5
+ref_p                    = 1.0
+gen_vel                  = yes
+gen_temp                 = 300
+gen_seed                 = 1729
+pbc                      = no
+

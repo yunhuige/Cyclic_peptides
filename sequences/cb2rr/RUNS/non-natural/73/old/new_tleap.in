@@ -1,0 +1,11 @@
+source oldff/leaprc.ff99SBildn
+loadamberparams frcmod.ff99SBnmr
+source leaprc.gaff
+gaff = loadamberparams gaff.dat
+loadoff WCL.off
+ligand = sequence {PHE GLU WCL LEU ASP TRP GLU PHE PRO PRO}
+bond ligand.1.N ligand.10.C
+
+saveAmberParm ligand ligand.prmtop ligand.crd
+
+quit

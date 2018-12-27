@@ -1,0 +1,50 @@
+----------------------------------------
+Begin Batch Job Prologue Fri Dec 21 14:24:39 EST 2018
+Job ID:           266670.cb2rr.cst.temple.edu
+Username:         tuf74040
+Group:            roder_voelz
+Job Name:         ligand
+Resources List:   neednodes=1:ppn=20,nodes=1:ppn=20,walltime=24:00:00
+Queue:            normal
+Account:          
+Nodes:            c-2-3 
+End Batch Job Prologue Fri Dec 21 14:24:39 EST 2018
+----------------------------------------
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 36x36x36, spacing 0.113 0.113 0.113
+This run will generate roughly 156 Mb of data
+turning H bonds into constraints...
+turning H bonds into constraints...
+turning H bonds into constraints...
+turning H bonds into constraints...
+Determining Verlet buffer for a tolerance of 0.005 kJ/mol/ps at 300 K
+Calculated rlist for 1x1 atom pair-list as 0.936 nm, buffer size 0.036 nm
+Set rlist, assuming 4x4 atom pair-list, to 0.900 nm, buffer size 0.000 nm
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 36x36x36, spacing 0.113 0.113 0.113
+This run will generate roughly 160 Mb of data
+turning H bonds into constraints...
+turning H bonds into constraints...
+turning H bonds into constraints...
+turning H bonds into constraints...
+Determining Verlet buffer for a tolerance of 0.005 kJ/mol/ps at 300 K
+Calculated rlist for 1x1 atom pair-list as 0.935 nm, buffer size 0.035 nm
+Set rlist, assuming 4x4 atom pair-list, to 0.900 nm, buffer size 0.000 nm
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 36x36x36, spacing 0.113 0.113 0.113
+This run will generate roughly 32 Mb of data
+----------------------------------------
+Begin Batch Job Epilogue Fri Dec 21 15:16:22 EST 2018
+Job ID:           266670.cb2rr.cst.temple.edu
+Username:         tuf74040
+Group:            roder_voelz
+Job Name:         ligand
+Session:          31287
+Limits:           neednodes=1:ppn=20,nodes=1:ppn=20,walltime=24:00:00
+Resources:        cput=16:25:58,mem=49912kb,vmem=1354340kb,walltime=00:51:43
+Queue:            normal
+Account:          
+End Batch Job Epilogue Fri Dec 21 15:16:42 EST 2018
+----------------------------------------
