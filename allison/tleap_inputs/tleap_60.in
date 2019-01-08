@@ -1,0 +1,35 @@
+
+source leaprc.protein.ff14SB
+source leaprc.gaff
+gaff = loadamberparams gaff.dat
+
+loadoff /Users/allisonterry/Cyclic_peptides/custom_residues/BIP/BIP.off
+loadoff /Users/allisonterry/Cyclic_peptides/custom_residues/NIB/NIB.off
+loadoff /Users/allisonterry/Cyclic_peptides/custom_residues/NIP/NIP.off
+loadoff /Users/allisonterry/Cyclic_peptides/custom_residues/WCL/WCL.off
+
+60 = sequence { PHE ASP TRP LEU ASN PHE LYS TYR PRO PRO }
+
+impose 60 {1} { {N CA C N 111.376} }
+impose 60 {1} { {C N CA C -95.475} }
+impose 60 {2} { {N CA C N 136.591} }
+impose 60 {2} { {C N CA C -89.714} }
+impose 60 {3} { {N CA C N 113.452} }
+impose 60 {3} { {C N CA C -151.946} }
+impose 60 {4} { {N CA C N -122.734} }
+impose 60 {4} { {C N CA C 50.611} }
+impose 60 {5} { {N CA C N 5.147} }
+impose 60 {5} { {C N CA C -80.847} }
+impose 60 {6} { {N CA C N 165.092} }
+impose 60 {6} { {C N CA C -131.562} }
+impose 60 {7} { {N CA C N 131.857} }
+impose 60 {7} { {C N CA C -132.023} }
+impose 60 {8} { {N CA C N 78.713} }
+impose 60 {9} { {N CA C N -133.349} }
+impose 60 {10} { {N CA C N -2.222} }
+bond 60.1.N 60.10.C
+
+saveAmberParm 60 60.prmtop 60.crd 
+
+quit
+

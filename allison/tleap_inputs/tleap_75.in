@@ -1,0 +1,35 @@
+
+source leaprc.protein.ff14SB
+source leaprc.gaff
+gaff = loadamberparams gaff.dat
+
+loadoff /Users/allisonterry/Cyclic_peptides/custom_residues/BIP/BIP.off
+loadoff /Users/allisonterry/Cyclic_peptides/custom_residues/NIB/NIB.off
+loadoff /Users/allisonterry/Cyclic_peptides/custom_residues/NIP/NIP.off
+loadoff /Users/allisonterry/Cyclic_peptides/custom_residues/WCL/WCL.off
+
+75 = sequence { PHE GLU BIP LEU ASP TRP GLU PHE PRO PRO }
+
+impose 75 {1} { {N CA C N 111.376} }
+impose 75 {1} { {C N CA C -95.475} }
+impose 75 {2} { {N CA C N 136.591} }
+impose 75 {2} { {C N CA C -89.714} }
+impose 75 {3} { {N CA C N 113.452} }
+impose 75 {3} { {C N CA C -151.946} }
+impose 75 {4} { {N CA C N -122.734} }
+impose 75 {4} { {C N CA C 50.611} }
+impose 75 {5} { {N CA C N 5.147} }
+impose 75 {5} { {C N CA C -80.847} }
+impose 75 {6} { {N CA C N 165.092} }
+impose 75 {6} { {C N CA C -131.562} }
+impose 75 {7} { {N CA C N 131.857} }
+impose 75 {7} { {C N CA C -132.023} }
+impose 75 {8} { {N CA C N 78.713} }
+impose 75 {9} { {N CA C N -133.349} }
+impose 75 {10} { {N CA C N -2.222} }
+bond 75.1.N 75.10.C
+
+saveAmberParm 75 75.prmtop 75.crd 
+
+quit
+
