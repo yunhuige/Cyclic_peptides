@@ -1,4 +1,4 @@
-loadoff /Users/allisonterry/Cyclic_peptides/custom_residues/BIP/BIP.off
-loadoff /Users/allisonterry/Cyclic_peptides/custom_residues/NIB/NIB.off
-loadoff /Users/allisonterry/Cyclic_peptides/custom_residues/NIP/NIP.off
-loadoff /Users/allisonterry/Cyclic_peptides/custom_residues/WCL/WCL.off
+loadoff /home/tug94223/work/git/Cyclic_peptides/custom_residues/BIP/BIP.off
+loadoff /home/tug94223/work/git/Cyclic_peptides/custom_residues/NIB/NIB.off
+loadoff /home/tug94223/work/git/Cyclic_peptides/custom_residues/NIP/NIP.off
+loadoff /home/tug94223/work/git/Cyclic_peptides/custom_residues/WCL/WCL.off

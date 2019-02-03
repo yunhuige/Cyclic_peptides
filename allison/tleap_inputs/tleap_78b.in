@@ -3,33 +3,33 @@ source leaprc.protein.ff14SB
 source leaprc.gaff
 gaff = loadamberparams gaff.dat
 
-loadoff /Users/allisonterry/Cyclic_peptides/custom_residues/BIP/BIP.off
-loadoff /Users/allisonterry/Cyclic_peptides/custom_residues/NIB/NIB.off
-loadoff /Users/allisonterry/Cyclic_peptides/custom_residues/NIP/NIP.off
-loadoff /Users/allisonterry/Cyclic_peptides/custom_residues/WCL/WCL.off
+loadoff /home/tug94223/work/git/Cyclic_peptides/custom_residues/BIP/BIP.off
+loadoff /home/tug94223/work/git/Cyclic_peptides/custom_residues/NIB/NIB.off
+loadoff /home/tug94223/work/git/Cyclic_peptides/custom_residues/NIP/NIP.off
+loadoff /home/tug94223/work/git/Cyclic_peptides/custom_residues/WCL/WCL.off
 
-78b = sequence { PHE GLU WCL LEU ASP TRP GLU PHE PRO PRO }
+bh78b = sequence { PHE GLU WCL LEU ASP TRP GLU PHE PRO PRO }
 
-impose 78b {1} { {N CA C N 111.376} }
-impose 78b {1} { {C N CA C -95.475} }
-impose 78b {2} { {N CA C N 136.591} }
-impose 78b {2} { {C N CA C -89.714} }
-impose 78b {3} { {N CA C N 113.452} }
-impose 78b {3} { {C N CA C -151.946} }
-impose 78b {4} { {N CA C N -122.734} }
-impose 78b {4} { {C N CA C 50.611} }
-impose 78b {5} { {N CA C N 5.147} }
-impose 78b {5} { {C N CA C -80.847} }
-impose 78b {6} { {N CA C N 165.092} }
-impose 78b {6} { {C N CA C -131.562} }
-impose 78b {7} { {N CA C N 131.857} }
-impose 78b {7} { {C N CA C -132.023} }
-impose 78b {8} { {N CA C N 78.713} }
-impose 78b {9} { {N CA C N -133.349} }
-impose 78b {10} { {N CA C N -2.222} }
-bond 78b.1.N 78b.10.C
+impose bh78b {1} { {N CA C N 111.376} }
+impose bh78b {1} { {C N CA C -95.475} }
+impose bh78b {2} { {N CA C N 136.591} }
+impose bh78b {2} { {C N CA C -89.714} }
+impose bh78b {3} { {N CA C N 113.452} }
+impose bh78b {3} { {C N CA C -151.946} }
+impose bh78b {4} { {N CA C N -122.734} }
+impose bh78b {4} { {C N CA C 50.611} }
+impose bh78b {5} { {N CA C N 5.147} }
+impose bh78b {5} { {C N CA C -80.847} }
+impose bh78b {6} { {N CA C N 165.092} }
+impose bh78b {6} { {C N CA C -131.562} }
+impose bh78b {7} { {N CA C N 131.857} }
+impose bh78b {7} { {C N CA C -132.023} }
+impose bh78b {8} { {N CA C N 78.713} }
+impose bh78b {9} { {N CA C N -133.349} }
+impose bh78b {10} { {N CA C N -2.222} }
+bond bh78b.1.N bh78b.10.C
 
-saveAmberParm 78b 78b.prmtop 78b.crd 
+saveAmberParm bh78b bh78b.prmtop bh78b.crd 
 
 quit
 

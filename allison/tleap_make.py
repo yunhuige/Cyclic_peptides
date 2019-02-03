@@ -41,10 +41,10 @@ def make_custom_command_text(command_file, key):
     
     fin = open(command_file, 'r')
     command_template = fin.readlines()
-    command_lines = [command.replace('pep', key) for command in command_template]
+    command_lines = [command.replace('pep', 'bh'+str(key)) for command in command_template]
     fin.close()
 
-    fout = open('%s_command.txt'%key, 'w')
+    fout = open('bh%s_command.txt'%key, 'w')
     for line in command_lines:
         fout.write(line)
     fout.close()
@@ -54,7 +54,7 @@ def make_custom_command_text(command_file, key):
 def write_a_tleap_script(outfile, key, sequence, commands):
     """Writes a tleap script given an output filename, the peptide key number, and a peptide sequence string."""
     
-    print 'Writing peptide %s to %s ...'%(key,outfile),
+    print 'Writing peptide bh%s to %s ...'%(key,outfile),
 
     # Translate the single-letter code in the sequence string to a list of three-letter codes
     three_letter_list = [olc2tlc[sequence[i]] for i in range(len(sequence))]
@@ -74,7 +74,7 @@ gaff = loadamberparams gaff.dat
     r.close()
 
     seq_text = """
-%s = sequence { %s }
+bh%s = sequence { %s }
 \n"""%(key,seq_string)
 
     c = open(commands, 'r')
@@ -82,7 +82,7 @@ gaff = loadamberparams gaff.dat
     c.close()
 
     wq_text = """
-saveAmberParm %s %s.prmtop %s.crd 
+saveAmberParm bh%s bh%s.prmtop bh%s.crd 
 
 quit
 \n"""%(key,key,key)
@@ -119,7 +119,7 @@ print 'sequences', sequences   # sequences = {p0: 'EEWAREIGAQLRRIADDLNAQYE', ...
 for key, sequence in sequences.iteritems():
     outfile = 'tleap_%s.in'%key
     make_custom_command_text('command.txt', key)
-    commands = '%s_command.txt'%key
+    commands = 'bh%s_command.txt'%key
     write_a_tleap_script(outfile, key, sequence, commands)
-    os.remove('%s_command.txt'%key)
+    os.remove('bh%s_command.txt'%key)
 # }}}

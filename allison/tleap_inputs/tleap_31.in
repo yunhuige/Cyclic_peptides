@@ -3,33 +3,33 @@ source leaprc.protein.ff14SB
 source leaprc.gaff
 gaff = loadamberparams gaff.dat
 
-loadoff /Users/allisonterry/Cyclic_peptides/custom_residues/BIP/BIP.off
-loadoff /Users/allisonterry/Cyclic_peptides/custom_residues/NIB/NIB.off
-loadoff /Users/allisonterry/Cyclic_peptides/custom_residues/NIP/NIP.off
-loadoff /Users/allisonterry/Cyclic_peptides/custom_residues/WCL/WCL.off
+loadoff /home/tug94223/work/git/Cyclic_peptides/custom_residues/BIP/BIP.off
+loadoff /home/tug94223/work/git/Cyclic_peptides/custom_residues/NIB/NIB.off
+loadoff /home/tug94223/work/git/Cyclic_peptides/custom_residues/NIP/NIP.off
+loadoff /home/tug94223/work/git/Cyclic_peptides/custom_residues/WCL/WCL.off
 
-31 = sequence { PHE LYS TRP LEU ASN PHE GLU THR PRO PRO }
+bh31 = sequence { PHE LYS TRP LEU ASN PHE GLU THR PRO PRO }
 
-impose 31 {1} { {N CA C N 111.376} }
-impose 31 {1} { {C N CA C -95.475} }
-impose 31 {2} { {N CA C N 136.591} }
-impose 31 {2} { {C N CA C -89.714} }
-impose 31 {3} { {N CA C N 113.452} }
-impose 31 {3} { {C N CA C -151.946} }
-impose 31 {4} { {N CA C N -122.734} }
-impose 31 {4} { {C N CA C 50.611} }
-impose 31 {5} { {N CA C N 5.147} }
-impose 31 {5} { {C N CA C -80.847} }
-impose 31 {6} { {N CA C N 165.092} }
-impose 31 {6} { {C N CA C -131.562} }
-impose 31 {7} { {N CA C N 131.857} }
-impose 31 {7} { {C N CA C -132.023} }
-impose 31 {8} { {N CA C N 78.713} }
-impose 31 {9} { {N CA C N -133.349} }
-impose 31 {10} { {N CA C N -2.222} }
-bond 31.1.N 31.10.C
+impose bh31 {1} { {N CA C N 111.376} }
+impose bh31 {1} { {C N CA C -95.475} }
+impose bh31 {2} { {N CA C N 136.591} }
+impose bh31 {2} { {C N CA C -89.714} }
+impose bh31 {3} { {N CA C N 113.452} }
+impose bh31 {3} { {C N CA C -151.946} }
+impose bh31 {4} { {N CA C N -122.734} }
+impose bh31 {4} { {C N CA C 50.611} }
+impose bh31 {5} { {N CA C N 5.147} }
+impose bh31 {5} { {C N CA C -80.847} }
+impose bh31 {6} { {N CA C N 165.092} }
+impose bh31 {6} { {C N CA C -131.562} }
+impose bh31 {7} { {N CA C N 131.857} }
+impose bh31 {7} { {C N CA C -132.023} }
+impose bh31 {8} { {N CA C N 78.713} }
+impose bh31 {9} { {N CA C N -133.349} }
+impose bh31 {10} { {N CA C N -2.222} }
+bond bh31.1.N bh31.10.C
 
-saveAmberParm 31 31.prmtop 31.crd 
+saveAmberParm bh31 bh31.prmtop bh31.crd 
 
 quit
 

@@ -3,33 +3,33 @@ source leaprc.protein.ff14SB
 source leaprc.gaff
 gaff = loadamberparams gaff.dat
 
-loadoff /Users/allisonterry/Cyclic_peptides/custom_residues/BIP/BIP.off
-loadoff /Users/allisonterry/Cyclic_peptides/custom_residues/NIB/NIB.off
-loadoff /Users/allisonterry/Cyclic_peptides/custom_residues/NIP/NIP.off
-loadoff /Users/allisonterry/Cyclic_peptides/custom_residues/WCL/WCL.off
+loadoff /home/tug94223/work/git/Cyclic_peptides/custom_residues/BIP/BIP.off
+loadoff /home/tug94223/work/git/Cyclic_peptides/custom_residues/NIB/NIB.off
+loadoff /home/tug94223/work/git/Cyclic_peptides/custom_residues/NIP/NIP.off
+loadoff /home/tug94223/work/git/Cyclic_peptides/custom_residues/WCL/WCL.off
 
-9 = sequence { PHE ILE TRP LEU ASN LYS PRO THR PRO PRO }
+bh9 = sequence { PHE ILE TRP LEU ASN LYS PRO THR PRO PRO }
 
-impose 9 {1} { {N CA C N 111.376} }
-impose 9 {1} { {C N CA C -95.475} }
-impose 9 {2} { {N CA C N 136.591} }
-impose 9 {2} { {C N CA C -89.714} }
-impose 9 {3} { {N CA C N 113.452} }
-impose 9 {3} { {C N CA C -151.946} }
-impose 9 {4} { {N CA C N -122.734} }
-impose 9 {4} { {C N CA C 50.611} }
-impose 9 {5} { {N CA C N 5.147} }
-impose 9 {5} { {C N CA C -80.847} }
-impose 9 {6} { {N CA C N 165.092} }
-impose 9 {6} { {C N CA C -131.562} }
-impose 9 {7} { {N CA C N 131.857} }
-impose 9 {7} { {C N CA C -132.023} }
-impose 9 {8} { {N CA C N 78.713} }
-impose 9 {9} { {N CA C N -133.349} }
-impose 9 {10} { {N CA C N -2.222} }
-bond 9.1.N 9.10.C
+impose bh9 {1} { {N CA C N 111.376} }
+impose bh9 {1} { {C N CA C -95.475} }
+impose bh9 {2} { {N CA C N 136.591} }
+impose bh9 {2} { {C N CA C -89.714} }
+impose bh9 {3} { {N CA C N 113.452} }
+impose bh9 {3} { {C N CA C -151.946} }
+impose bh9 {4} { {N CA C N -122.734} }
+impose bh9 {4} { {C N CA C 50.611} }
+impose bh9 {5} { {N CA C N 5.147} }
+impose bh9 {5} { {C N CA C -80.847} }
+impose bh9 {6} { {N CA C N 165.092} }
+impose bh9 {6} { {C N CA C -131.562} }
+impose bh9 {7} { {N CA C N 131.857} }
+impose bh9 {7} { {C N CA C -132.023} }
+impose bh9 {8} { {N CA C N 78.713} }
+impose bh9 {9} { {N CA C N -133.349} }
+impose bh9 {10} { {N CA C N -2.222} }
+bond bh9.1.N bh9.10.C
 
-saveAmberParm 9 9.prmtop 9.crd 
+saveAmberParm bh9 bh9.prmtop bh9.crd 
 
 quit
 

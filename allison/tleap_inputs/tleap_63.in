@@ -3,33 +3,33 @@ source leaprc.protein.ff14SB
 source leaprc.gaff
 gaff = loadamberparams gaff.dat
 
-loadoff /Users/allisonterry/Cyclic_peptides/custom_residues/BIP/BIP.off
-loadoff /Users/allisonterry/Cyclic_peptides/custom_residues/NIB/NIB.off
-loadoff /Users/allisonterry/Cyclic_peptides/custom_residues/NIP/NIP.off
-loadoff /Users/allisonterry/Cyclic_peptides/custom_residues/WCL/WCL.off
+loadoff /home/tug94223/work/git/Cyclic_peptides/custom_residues/BIP/BIP.off
+loadoff /home/tug94223/work/git/Cyclic_peptides/custom_residues/NIB/NIB.off
+loadoff /home/tug94223/work/git/Cyclic_peptides/custom_residues/NIP/NIP.off
+loadoff /home/tug94223/work/git/Cyclic_peptides/custom_residues/WCL/WCL.off
 
-63 = sequence { PHE GLU TRP LEU ASN PHE GLU TYR PRO PRO }
+bh63 = sequence { PHE GLU TRP LEU ASN PHE GLU TYR PRO PRO }
 
-impose 63 {1} { {N CA C N 111.376} }
-impose 63 {1} { {C N CA C -95.475} }
-impose 63 {2} { {N CA C N 136.591} }
-impose 63 {2} { {C N CA C -89.714} }
-impose 63 {3} { {N CA C N 113.452} }
-impose 63 {3} { {C N CA C -151.946} }
-impose 63 {4} { {N CA C N -122.734} }
-impose 63 {4} { {C N CA C 50.611} }
-impose 63 {5} { {N CA C N 5.147} }
-impose 63 {5} { {C N CA C -80.847} }
-impose 63 {6} { {N CA C N 165.092} }
-impose 63 {6} { {C N CA C -131.562} }
-impose 63 {7} { {N CA C N 131.857} }
-impose 63 {7} { {C N CA C -132.023} }
-impose 63 {8} { {N CA C N 78.713} }
-impose 63 {9} { {N CA C N -133.349} }
-impose 63 {10} { {N CA C N -2.222} }
-bond 63.1.N 63.10.C
+impose bh63 {1} { {N CA C N 111.376} }
+impose bh63 {1} { {C N CA C -95.475} }
+impose bh63 {2} { {N CA C N 136.591} }
+impose bh63 {2} { {C N CA C -89.714} }
+impose bh63 {3} { {N CA C N 113.452} }
+impose bh63 {3} { {C N CA C -151.946} }
+impose bh63 {4} { {N CA C N -122.734} }
+impose bh63 {4} { {C N CA C 50.611} }
+impose bh63 {5} { {N CA C N 5.147} }
+impose bh63 {5} { {C N CA C -80.847} }
+impose bh63 {6} { {N CA C N 165.092} }
+impose bh63 {6} { {C N CA C -131.562} }
+impose bh63 {7} { {N CA C N 131.857} }
+impose bh63 {7} { {C N CA C -132.023} }
+impose bh63 {8} { {N CA C N 78.713} }
+impose bh63 {9} { {N CA C N -133.349} }
+impose bh63 {10} { {N CA C N -2.222} }
+bond bh63.1.N bh63.10.C
 
-saveAmberParm 63 63.prmtop 63.crd 
+saveAmberParm bh63 bh63.prmtop bh63.crd 
 
 quit
 
