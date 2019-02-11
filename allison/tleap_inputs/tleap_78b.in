@@ -3,10 +3,10 @@ source leaprc.protein.ff14SB
 source leaprc.gaff
 gaff = loadamberparams gaff.dat
 
-loadoff /home/tug94223/work/git/Cyclic_peptides/custom_residues/BIP/BIP.off
-loadoff /home/tug94223/work/git/Cyclic_peptides/custom_residues/NIB/NIB.off
-loadoff /home/tug94223/work/git/Cyclic_peptides/custom_residues/NIP/NIP.off
-loadoff /home/tug94223/work/git/Cyclic_peptides/custom_residues/WCL/WCL.off
+loadoff /Users/allisonterry/Cyclic_peptides/custom_residues/BIP/BIP.off
+loadoff /Users/allisonterry/Cyclic_peptides/custom_residues/NIB/NIB.off
+loadoff /Users/allisonterry/Cyclic_peptides/custom_residues/NIP/NIP.off
+loadoff /Users/allisonterry/Cyclic_peptides/custom_residues/WCL/WCL.off
 
 bh78b = sequence { PHE GLU WCL LEU ASP TRP GLU PHE PRO PRO }
 

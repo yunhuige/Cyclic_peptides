@@ -6,7 +6,7 @@ import sys, os, platform
 #}}}
 
 # Control/Functions:{{{
-TESTING = True 
+TESTING = False #True 
 def run_cmd(cmd, testing=TESTING):
     """Execute command-line command."""
     if not testing:
@@ -15,8 +15,7 @@ def run_cmd(cmd, testing=TESTING):
         print '>>', cmd
 
 def edit_top(top_in, top_out):
-        """Given a gmx top file, add necessary include lines and delete defaults s
-ection"""
+        """Given a gmx top file, add necessary include lines and delete defaults section"""
 
         fin = open(top_in, 'r')   # open th3 file handle
         # read file as a list of strings
