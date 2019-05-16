@@ -24,6 +24,13 @@ chimera --nogui --script "mutate_via_rotamers.py 2axi.pdb Seq_Table_2.txt"
 • I need to talk to Vince to make sure that I can proceed with the protocol that Yunhui and I have discussed.
 
 
+# Thu May 16 15:28:14 EDT 2019
+
+### Notes:
+• Only thing left for the natural sequences is to manually fix sequence #41 due to the tryptophan being in the position of Phe. (This is the only sequence with this issue.)
+• Otherwise, I think we are all set.
+
+
 
 
 

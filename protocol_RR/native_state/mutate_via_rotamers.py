@@ -27,6 +27,42 @@ if (sys.argv[1:] == ("-h" or "--h" or "--help" or "help")) or (len(sys.argv) >= 
 
 # Methods:{{{
 
+def load_pdb(pdb, verbose=False):
+    """Loads a structure file into chimera."""
+
+    print('\n\n\nLoading Crystal Structure...\n')
+    mc('open %s'%ref)
+
+    om = chimera.openModels
+    models = om.list()
+
+    if verbose:
+        # Get the information from the pdb file loaded:
+        print("###############################################################")
+        pdb_info = ['TITLE']#,'REMARK']
+        for m in openModels.list(modelTypes=[Molecule]):
+            for header in pdb_info:
+                try:
+                    for line in m.pdbHeaders[header]:
+                        print('Model # = %s;\n Name = %s;\n%s;\n\n'%(
+                            str(m.id), str(m.name), str(line)))
+                except KeyError:
+                    print("Model # = %s;\n Name = %s;\n Has no header... \n\n"%(
+                        str(m.id), str(m.name)))
+        print("There are %s models."%len(models))
+        print("###############################################################\n\n")
+    return models
+
+
+def swapAA(resName,ID):
+    '''Mutates an amino acid to a new specified residue.'''
+
+    # Mutating amino acids:
+    print 'Mutation: ',ID,' to ',resName
+    # Swap a residue of choice for another  amino acid:
+    mc('swapaa %s %s'%(resName,ID))
+
+
 def mutate_from_rotamers(refID, resType=None, replace=False, verbose=False):
     """ This function will perform an optimization of rotamers with the
     great probability and select the rotamer that fits the Chi angles the
@@ -58,10 +94,11 @@ def mutate_from_rotamers(refID, resType=None, replace=False, verbose=False):
     selRType = selR.type
     if resType == selRType:
         if replace == False:
-            print("pass\n\n")
+            print("Chimera selection: %s, %s pass\n\n"%(selR,selRType))
             execute = False
 
     if execute:
+        print("\nChimera selection: %s, %s --> %s"%(selR,selRType,resType))
         # Borrowing (The code was rewritten) the next 15 lines of code from:
         # Computational and Visualization Techniques for Structural Bioinformatics ...
         # By Forbes J. Burkowski
@@ -84,32 +121,16 @@ def mutate_from_rotamers(refID, resType=None, replace=False, verbose=False):
                 rotIx += 1
         except NoResidueRotamersError:
             print(selR.id.position, selR.type, "No rotamers")
+            #NOTE: Force the mutation #TODO: fix this with a conditional statement
+            print("Forcing a mutation...")
+            print("mutating %s --> %s"%(selR.type,resType))
+            swapAA(resType,refID)
 
 # }}}
 
 # Main:{{{
 # Reference
 ref = sys.argv[1]
-print('\nLoading Crystal Structure...\n')
-mc('open %s'%ref)
-
-om = chimera.openModels
-models = om.list()
-
-# Get the information from the pdb file loaded:
-print("###############################################################")
-pdb_info = ['TITLE']#,'REMARK']
-for m in openModels.list(modelTypes=[Molecule]):
-    for header in pdb_info:
-        try:
-            for line in m.pdbHeaders[header]:
-                print('Model # = %s;\n Name = %s;\n%s;\n\n'%(
-                    str(m.id), str(m.name), str(line)))
-        except KeyError:
-            print("Model # = %s;\n Name = %s;\n Has no header... \n\n"%(
-                str(m.id), str(m.name)))
-print("There are %s models."%len(models))
-print("###############################################################\n\n")
 
 # TODO: Get rid of these hardcodes if possible. Otherwise they need to be moved
 # and mentioned in the usage message.
@@ -130,24 +151,57 @@ if sys.argv[2]:
             new_seq.append(L[1])
 
 # Part 2: Use Rotamers library:
-nth_seq = 0
-for seq in new_seq:
-    nth_res = 0
-    for new_res in seq:
-        mutate_from_rotamers(refID=ref_seq[nth_res],resType=new_res)
-        nth_res += 1
+#nth_seq = 0
+#for seq in new_seq:
+#    # Open the pdb in chimera
+#    models = load_pdb(ref)
+#    nth_res = 0
+#    for new_res in seq:
+#        mutate_from_rotamers(refID=ref_seq[nth_res],resType=new_res)
+#        nth_res += 1
+#
+#    outFile = "2axi_seq_%s.pdb"%(seq_number[nth_seq])
+#    print('write format pdb %s %s'%(models[0],outFile))
+#    mc('write format pdb %s %s'%(models[0],outFile))
+#    print("##########################################")
+#    print("%s, %s"%(seq_number[nth_seq],new_seq[nth_seq]))
+#    print(seq)
+#
+#    print("##########################################")
+#
+#
+#    # Close the pdb after it has been written and go to the next iteration.
+#    mc('close all')
+#    # Stop here to check
+#    # comment or uncomment the break
+#    #break
+#    nth_seq += 1
 
-    outFile = "2axi_seq_%s.pdb"%(seq_number[nth_seq])
+# Part 2: Use Rotamers library:
+for i in range(len(new_seq)):
+    # Open the pdb in chimera
+    models = load_pdb(ref)
+    print("##########################################")
+    print("%s, %s"%(seq_number[i],new_seq[i]))
+    print("##########################################")
+    for j in range(len(new_seq[i])):
+        mutate_from_rotamers(refID=ref_seq[j],resType=new_seq[i][j])
+    outFile = "2axi_seq_%s.pdb"%(seq_number[i])
     print('write format pdb %s %s'%(models[0],outFile))
     mc('write format pdb %s %s'%(models[0],outFile))
+    # Close the pdb after it has been written and go to the next iteration.
+    mc('close all')
     # Stop here to check
     # comment or uncomment the break
-    break
-    nth_seq += 1
+    #break
 
-mc('~sel')
-mc('sel #0:.B')
-mc('show sel')
+
+
+
+
+#mc('~sel')
+#mc('sel #0:.B')
+#mc('show sel')
 
 # }}}
 
