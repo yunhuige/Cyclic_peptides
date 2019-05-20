@@ -72,18 +72,7 @@ gmx make_ndx -f solv_ions.gro
 2. editconf -f ligand.pdb  -o ligand.gro
 3. Use reorder.py to get new.gro
 
-Place all of these files inside of each directory:
-amber
-mdp 
-spc2
-pdb 
-top
-
-### This RUNS directory is incorrect.  Corresponds to the newer mapping.txt file
-/Users/tuc41004/github/Cyclic_peptides/protocol_RR/RUNS/0/ligand_GMX.top
-
-### 
-/Users/tuc41004/github/Cyclic_peptides/protocol_RR/old_mapping.txt
+#### Commands:
 
 chimera --nogui --script "mutate_via_rotamers.py 2axi.pdb Seq_Table_2.txt"
 
@@ -92,19 +81,14 @@ for i in {0..62};do cd $i;gmx editconf -f ligand.pdb -o ligand.gro;python ../reo
 
 For Seq # 41: Change bond angles to match the following:
 
-CD1
--122.32
+CD1: -122.32; CG: 67.557
 
-CG
-67.557
-
-bond angle:
-CA-CB-CG
-108.0
+bond angle: CA-CB-CG: 108.0
 
 ## Seq # 57 HIS has an error with the number of hydrogens. 
 
-Completing this sequence by hand...
+### NOTE: This RUNS directory is incorrect.  Corresponds to the newer mapping.txt file
+/Users/tuc41004/github/Cyclic_peptides/protocol_RR/RUNS/0/ligand_GMX.top
 
 
 
@@ -116,7 +100,7 @@ Completing this sequence by hand...
 
 #### Natural AA sequences from Table 2.
 
-| $$\#$$ | Sequence |
+| \# | Sequence |
 | :--: | :--: |
 | 1  | FLWLNKET |
 | 6  | FLWLNKEI |
