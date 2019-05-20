@@ -90,7 +90,7 @@ bond angle: CA-CB-CG: 108.0
 ### NOTE: This RUNS directory is incorrect.  Corresponds to the newer mapping.txt file
 /Users/tuc41004/github/Cyclic_peptides/protocol_RR/RUNS/0/ligand_GMX.top
 
-
+## The gro file to be used: **ligand_.gro**
 
 
 
