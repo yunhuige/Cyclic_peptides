@@ -1,4 +1,10 @@
-[List of Sequences](#Natural-AA-sequences-from-Table-2.)
+# README.md ——— Lab Notebook 
+
+## Contents:
+
+1. [List of Sequences](#natural-aa-sequences-from-table-2)
+2. [Sequence Mapping](#Mapping)
+
 
 # Wed May 15 10:01:09 EDT 2019
 
@@ -23,7 +29,7 @@ chimera --nogui --script "mutate_via_rotamers.py 2axi.pdb Seq_Table_2.txt"
 ### Prospective plans/notes:
 • You may also have to change the residue numbers?
 • Make sure you have the correct ordering of the paper and sequences in the txt file
-• I need to talk to Vince to make sure that I can proceed with the protocol that Yunhui and I have discussed.
+`[x]` Talk to Vince to make sure that I can proceed with the protocol that Yunhui and I have discussed.
 
 
 # Thu May 16 15:28:14 EDT 2019
@@ -54,8 +60,52 @@ gmx make_ndx -f solv_ions.gro
 
 • Wrote up a script to reorder the atoms in the structure file (gro) to match the topology (see reorder.py)
 
-# TODO:
-• Applied the script to obtain all of the gro files and placed them inside of the reordered the directories according to [the mapping below](#Mapping).
+
+# Mon May 20 10:19:01 EDT 2019
+
+#TODO:
+• Apply the script to obtain all of the gro files and placed them inside of the reordered the directories according to [the mapping below](#Mapping).
+
+#### Protocol
+
+1. split pdb --> chimera addh to ligand & change DPR to PRO --> ligand.pdb
+2. editconf -f ligand.pdb  -o ligand.gro
+3. Use reorder.py to get new.gro
+
+Place all of these files inside of each directory:
+amber
+mdp 
+spc2
+pdb 
+top
+
+### This RUNS directory is incorrect.  Corresponds to the newer mapping.txt file
+/Users/tuc41004/github/Cyclic_peptides/protocol_RR/RUNS/0/ligand_GMX.top
+
+### 
+/Users/tuc41004/github/Cyclic_peptides/protocol_RR/old_mapping.txt
+
+chimera --nogui --script "mutate_via_rotamers.py 2axi.pdb Seq_Table_2.txt"
+
+for i in {0..62};do cd $i;gmx editconf -f ligand.pdb -o ligand.gro;python ../reorder.py ligand.gro /Users/tuc41004/github/Cyclic_peptides/sequences/cb2rr/RUNS/$i/ligand_GMX.top;cd ../;done
+
+
+For Seq # 41: Change bond angles to match the following:
+
+CD1
+-122.32
+
+CG
+67.557
+
+bond angle:
+CA-CB-CG
+108.0
+
+## Seq # 57 HIS has an error with the number of hydrogens. 
+
+Completing this sequence by hand...
+
 
 
 
@@ -66,7 +116,7 @@ gmx make_ndx -f solv_ions.gro
 
 #### Natural AA sequences from Table 2.
 
-| $$#$$ | Sequence |
+| $$\#$$ | Sequence |
 | :--: | :--: |
 | 1  | FLWLNKET |
 | 6  | FLWLNKEI |

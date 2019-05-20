@@ -14,7 +14,7 @@ Output:
     - pdb or gro file
 '''
 # Import Modules:{{{
-import sys
+import sys,os
 import chimera
 from Midas.midas_text import makeCommand as mc
 from chimera import openModels, Molecule
@@ -26,6 +26,27 @@ if (sys.argv[1:] == ("-h" or "--h" or "--help" or "help")) or (len(sys.argv) >= 
 # }}}
 
 # Methods:{{{
+def run_cmd(cmd, testing=False):
+    """Execute command-line command."""
+
+    if testing:
+        print('>>', cmd)
+    else:
+        os.system(cmd)
+
+def replace_text_in_file(FILE, text, replacement, out):
+    with open(FILE, "r") as file:
+        with open(out, "w") as f:
+            f.seek(0)
+            for line in file.readlines():
+                if text in line:
+                    f.write(line.replace(text,replacement))
+                else:
+                    f.write(line)
+            f.truncate()
+            f.close()
+        file.close()
+
 
 def load_pdb(pdb, verbose=False):
     """Loads a structure file into chimera."""
@@ -58,7 +79,7 @@ def swapAA(resName,ID):
     '''Mutates an amino acid to a new specified residue.'''
 
     # Mutating amino acids:
-    print 'Mutation: ',ID,' to ',resName
+    print('Mutation: ',ID,' to ',resName)
     # Swap a residue of choice for another  amino acid:
     mc('swapaa %s %s'%(resName,ID))
 
@@ -151,59 +172,102 @@ if sys.argv[2]:
             new_seq.append(L[1])
 
 # Part 2: Use Rotamers library:
-#nth_seq = 0
-#for seq in new_seq:
-#    # Open the pdb in chimera
-#    models = load_pdb(ref)
-#    nth_res = 0
-#    for new_res in seq:
-#        mutate_from_rotamers(refID=ref_seq[nth_res],resType=new_res)
-#        nth_res += 1
-#
-#    outFile = "2axi_seq_%s.pdb"%(seq_number[nth_seq])
-#    print('write format pdb %s %s'%(models[0],outFile))
-#    mc('write format pdb %s %s'%(models[0],outFile))
-#    print("##########################################")
-#    print("%s, %s"%(seq_number[nth_seq],new_seq[nth_seq]))
-#    print(seq)
-#
-#    print("##########################################")
-#
-#
-#    # Close the pdb after it has been written and go to the next iteration.
-#    mc('close all')
-#    # Stop here to check
-#    # comment or uncomment the break
-#    #break
-#    nth_seq += 1
-
-# Part 2: Use Rotamers library:
 for i in range(len(new_seq)):
     # Open the pdb in chimera
     models = load_pdb(ref)
+
     print("##########################################")
     print("%s, %s"%(seq_number[i],new_seq[i]))
     print("##########################################")
     for j in range(len(new_seq[i])):
         mutate_from_rotamers(refID=ref_seq[j],resType=new_seq[i][j])
     outFile = "2axi_seq_%s.pdb"%(seq_number[i])
+    # Write the first pdb file with protein and ligand
     print('write format pdb %s %s'%(models[0],outFile))
     mc('write format pdb %s %s'%(models[0],outFile))
-    # Close the pdb after it has been written and go to the next iteration.
+
+
+
+    #NOTE: This is only to change DRP --> PRO
+    # If the file contains residues named "DPR", then we need to change them to "PRO"
+    newoutFile = "2axi_.pdb"
+    replace_text_in_file(FILE=outFile, text="DPR", replacement="PRO", out=newoutFile)
+    #replace_text_in_file(FILE=outFile, text="HIS", replacement="HIE", out=newoutFile)
+
+    #NOTE:
+    #NOTE: Everything included in the ####### after this point is added
+    # with the intent to separate the ligand and protein.
+    ## Here, we will separate and create a new pdb of only the ligand, then we
+    # will add hydrogens.
+    # Write the 2nd and 3rd pdbs which are  protein and ligand separated
+###############################################################################
+
+    mc("addh")
+    mc("sel :.B")
+    #FIXME
+    lig_outFile = "2axi_ligand.pdb"
+    print('write format pdb selected %s %s'%(models[0],lig_outFile))
+    mc('write format pdb selected %s %s'%(models[0],lig_outFile))
+
+    mc("sel :.A")
+    pro_outFile = "2axi_protein.pdb"
+    print('write format pdb selected %s %s'%(models[0],pro_outFile))
+    mc('write format pdb selected %s %s'%(models[0],pro_outFile))
+
+    out1 = "ligand.pdb"
+    replace_text_in_file(FILE=lig_outFile, text="DPR", replacement="PRO", out=out1)
+    #replace_text_in_file(FILE=outFile, text="HIS", replacement="HIE", out=newoutFile)
+    out2 = "protein.pdb"
+    replace_text_in_file(FILE=pro_outFile, text="DPR", replacement="PRO", out=out2)
+    #replace_text_in_file(FILE=outFile, text="HIS", replacement="HIE", out=newoutFile)
+
+    if not os.path.exists(str(i)):
+        run_cmd("mkdir %s"%str(i)) # make a directory
+    run_cmd("mv %s %s"%(outFile,i))
+    run_cmd("mv %s %s"%(out1,i))
+    run_cmd("mv %s %s"%(out2,i))
+    run_cmd("mv %s %s"%(newoutFile,i))
+    run_cmd("mv %s %s"%(lig_outFile,i))
+    run_cmd("mv %s %s"%(pro_outFile,i))
+
+
+###############################################################################
+
+
     mc('close all')
+    # Close the pdb after it has been written and go to the next iteration.
     # Stop here to check
     # comment or uncomment the break
     #break
 
 
 
-
-
-#mc('~sel')
-#mc('sel #0:.B')
-#mc('show sel')
-
 # }}}
+
+#exit(1)
+## Open up the mapping.txt file:
+#
+#mapping = "/Users/tuc41004/github/Cyclic_peptides/protocol_RR/old_mapping.txt"
+#
+#with open(mapping, "r") as file:
+#    for line in file.readlines():
+#        From = line.split(" --> ")[0]
+#        To = line.split(" --> ")[1]
+#        # NOTE: In this case we are mapping in reverse (To --> From)
+#        if not os.path.exists(From):
+#            run_cmd("mkdir %s"%From) # make a directory
+#
+#        FILES = ["2axi_seq_%s.pdb"%(To), "2axi_seq_%s_ligand.pdb"%(To), "2axi_seq_%s_protien.pdb"%(To)]
+#
+#        for i in range(len(FILES)):
+#            new_dir = "./"+From+"/"+FILES[i].replace(To,From)
+#            run_cmd("mv %s %s"%(FILES[i],new_dir))
+#        #run_cmd("")
+#        #run_cmd("")
+#
+
+
+
 
 
 
