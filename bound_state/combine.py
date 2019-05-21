@@ -24,7 +24,7 @@ def load_pdb(pdb, verbose=False):
     """Loads a structure file into chimera."""
 
     print('\n\n\nLoading Crystal Structure...\n')
-    mc('open %s'%ref)
+    mc('open %s'%pdb)
 
     om = chimera.openModels
     models = om.list()
@@ -50,17 +50,14 @@ def load_pdb(pdb, verbose=False):
 
 # MAIN:
 
-ref = "Path to 1st pdb" # sys.argv[1]
-ref1 = "Path to 1st pdb" # sys.argv[2]
-
-
-
-models = load_pdb(ref) # model #1
-models = load_pdb(ref1) # model #2
-#mc('write format pdb %s %s'%(models[0],outFile))
-
+models = load_pdb(sys.argv[1]) # model #1
+mc('open %s'%sys.argv[2])
+mc("combine #0,1")
+outFile = "new.pdb"
+om = chimera.openModels
+models = om.list()
 # will save all models
-mc('write format pdb %s %s'%(models,outFile))
+mc('write format pdb %s %s'%(models[2], outFile))
 mc("close all")
 
 
